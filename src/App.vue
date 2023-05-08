@@ -1,17 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h2>Add method - {{ add() }}</h2>
+  <h2>Multiply method - {{ multiply(3) }}</h2>
+  <h2>{{ name }}</h2>
+  <button @click=changeName()>Change Name</button>
+  <h2>Count - {{ count }}</h2>
+  <div>
+    <button @click=increment()>Increment</button>
+    <button @click=decrement()>Decrement</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      baseMultiplier : 5,
+      name : 'Zayarwin',
+      count:1
+    }
+  },
+  methods : {
+    add(){
+      return 2 + 3 + 5
+    },
+    multiply(num){
+      return num * this.baseMultiplier
+    },
+    changeName(){
+      return this.name = 'Batman'
+    },
+    increment(){
+      this.count += 1;
+    },
+    decrement(){
+      this.count -=1;
+    }
   }
-}
+  }
 </script>
 
 <style>
@@ -21,6 +48,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px; 
 }
 </style>
